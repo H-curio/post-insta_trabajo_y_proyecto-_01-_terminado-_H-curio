@@ -1,0 +1,397 @@
+/* Variables / easy edits */
+:root {
+  --bg: #574343;
+  /* fondo general / page background */
+  --card-bg: #c4c2c2;
+  /* fondo de cada tarjeta / card background */
+  --text-main: #333333;
+  /* color texto principal / main text color */
+  --text-muted: #999999;
+  /* texto secundario / muted text */
+  --accent: #e4405f;
+  /* color del corazón (like) tipo Instagram / like accent color */
+  --radius: 12px;
+  /* radio esquinas / border radius */
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* sombra suave / soft shadow */
+  --gap: 60px;
+  /* separación entre tarjetas / card gap */
+  font-size: 13px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: 'Roboto', sans-serif;
+  /* (cambia aquí la tipografía / change font) */
+  color: var(--text-main);
+  line-height: 1.4;
+  padding: var(--gap);
+}
+
+.gallery {
+  max-width: 500px;
+  /* ancho similar a post de Instagram / width close to IG post */
+  margin: 0 auto;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid #ddd;
+  /* borde ligero / light border */
+  border-radius: var(--radius);
+  overflow: hidden;
+  /* que las esquinas redondeadas se vean / rounded corners visible */
+  box-shadow: var(--shadow);
+  margin-bottom: var(--gap);
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-details {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.location {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/*boton de  mas opciones*/
+/* De Uiverse.io por sammykINC */
+/* funciona solo sobre un fondo oscuro con estos parámetros*/
+
+.button {
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  place-items: center;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button>svg {
+  border-radius: inherit;
+  padding: 0.5rem;
+  fill: #642828;
+  /*  gráficos vectoriales escalables (Scalable Vector Graphics) color */
+  width: 38px;
+  /* ancho predeterminado 32px */
+  height: 38px;
+  /* altura predeterminada 32px */
+}
+
+.button>svg:active {
+  background-color: rgba(65, 65, 65, 0.5);
+}
+
+.button>svg:not(:active) {
+  animation: fadeOut 0.9s;
+}
+
+@keyframes fadeOut {
+  0% {
+    outline: 1px solid rgba(253, 0, 0, 0.5);
+    /* Si usas border, ocupará espacio en el interior y moverá ligeramente el SVG */
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+/*fin boton de  mas opciones*/
+
+.post-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  /* para que sea cuadrada / square ratio */
+  object-fit: cover;
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  padding: 20px 6px;
+}
+
+.icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--text-main);
+}
+
+/* corazon links */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  position: relative;
+}
+
+.btn::after {
+  content: "like";
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  font-size: 15px;
+  color: rgb(87, 4, 4);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s linear;
+  top: 115%;
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  transition: 0.2s linear;
+}
+
+.icon path {
+  fill: rgb(185, 104, 104);
+  transition: 0.2s linear;
+}
+
+.btn:hover>.icon {
+  transform: scale(1.2);
+}
+
+.btn:hover>.icon path {
+  fill: rgb(177, 139, 189);
+}
+
+.btn:hover::after {
+  visibility: visible;
+  opacity: 1;
+  top: 105%;
+}
+
+/*fin corazon links*/
+
+.icon:hover {
+  color: var(--accent);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.post-caption {
+  padding: 0 12px 8px;
+  font-size: 0.9rem;
+}
+
+.caption-user {
+  font-weight: 500;
+  margin-right: 4px;
+}
+
+.post-meta {
+  padding: 0 12px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/*boton de guardado*/
+.bookmarkBtn {
+  width: 100px;
+  height: 40px;
+  border-radius: 40px;
+  border: 1px solid rgb(99, 1, 1);
+  background-color: rgb(126, 67, 67);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  overflow: hidden;
+}
+
+.IconContainer {
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(to bottom, rgb(255, 223, 255), rgb(56, 48, 63));
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: 0.3s;
+}
+
+.icon {
+  border-radius: 1px;
+}
+
+.text {
+  height: 100%;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 1;
+  transition-duration: 0.3s;
+  font-size: 1.04em;
+}
+
+.bookmarkBtn:hover .IconContainer {
+  width: 90px;
+  transition-duration: 0.3s;
+}
+
+.bookmarkBtn:hover .text {
+  transform: translate(10px);
+  width: 0;
+  font-size: 0;
+  transition-duration: 0.3s;
+}
+
+.bookmarkBtn:active {
+  transform: scale(0.95);
+  transition-duration: 0.3s;
+}
+
+/*fin boton guardado*/
+
+/* Contenedor de la flecha */
+.tooltip-container {
+  position: relative;
+  cursor: pointer;
+  font-size: 0px;
+  padding: 0;
+  border-radius: 50px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  margin-left: 8px; /* mueve la flecha a la derecha */
+}
+
+/* Cambio de color al pasar cursor */
+.tooltip-container:hover {
+  background: #e6cccc;
+  transition: all 0.6s;
+}
+
+.tooltip-container .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: #b36060;
+  transition: all 0.2s;
+}
+
+.tooltip-container:hover .text {
+  fill: rgb(3, 169, 244);
+  transition: all 0.6s;
+}
+
+/* WhatsApp arriba de la flecha */
+.tooltip3 {
+  position: absolute;
+  bottom: 120%; /* aparece arriba de la flecha */
+  left: 50%;
+  transform: translateX(-50%); /* centrado horizontal */
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  fill: #1db954;
+  padding: 10px;
+  border-radius: 50px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: opacity 0.3s, visibility 0.3s, bottom 0.3s;
+  z-index: 10;
+}
+
+.tooltip-container:hover .tooltip3 {
+  opacity: 1;
+  visibility: visible;
+  bottom: 150%; /* se desplaza un poco más arriba al aparecer */
+}
+
+/* GitHub abajo de la flecha */
+.tooltip7 {
+  position: absolute;
+  top: 120%; /* aparece debajo de la flecha */
+  left: 50%;
+  transform: translateX(-50%); /* centrado horizontal */
+  opacity: 0;
+  visibility: hidden;
+  background: #fff;
+  fill: #000;
+  padding: 10px;
+  border-radius: 50px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: opacity 0.3s, visibility 0.3s, top 0.3s;
+  z-index: 10;
+}
+
+.tooltip-container:hover .tooltip7 {
+  opacity: 1;
+  visibility: visible;
+  top: 150%; /* se desplaza un poco más abajo al aparecer */
+}
+
+
+.send-icon-container {
+  position: relative;
+  cursor: pointer;
+  padding: 0; /* quitar espacio */
+  border-radius: 0; /* quitar redondeado */
+  box-shadow: none; /* quitar sombra */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time {
+  /* estilo del tiempo / time style */
+}
+
+.footer {
+  text-align: center;        /* Centra el texto */
+  color: #fff;               /* Texto blanco */
+  padding: 15px;             /* Espaciado */
+  font-family: 'Roboto', sans-serif; /* Misma fuente */
+  background-color: #3b2b2b; /* Color oscuro para que se distinga */
+  font-size: 14px;
+  margin-top: 20px;          /* Espacio arriba, separado de la tarjeta */
+  border-radius: 8px;        /* Bordes redondeados para que combine */
+}
